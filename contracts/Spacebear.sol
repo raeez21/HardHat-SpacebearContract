@@ -24,7 +24,9 @@ contract Spacebear is ERC721, Ownable {
     }
     function buyToken() public payable{
         uint256 tokenId = _nextTokenId - 1;
+        //below uses the hardhat console log to log values into the shell
         console.log("AT HERE: ",tokenId, msg.value);
+
         require(msg.value == tokenId * 0.1 ether, "Wrong amout of funds sent"); //First token sold for 0.1 eth, second token for 0.2 eth, third one for 0.3 eth and so on
         _safeMint(msg.sender, tokenId);
     }
